@@ -4,6 +4,7 @@ import sys
 import pygame
 
 from . import GRID_SIZE, SCREEN_HEIGHT, SCREEN_WIDTH, UP, DOWN, LEFT, RIGHT
+from .colors import Colors
 
 
 class Snake:
@@ -15,7 +16,7 @@ class Snake:
         )]
         self.direction = random.choice([UP, DOWN, LEFT, RIGHT])
 
-        self.color = (64, 224, 208)
+        self.color = Colors.BLUE
         self.score = 0
 
     def get_head_position(self):
@@ -48,7 +49,7 @@ class Snake:
             rect = pygame.Rect((p[0], p[1]), (GRID_SIZE, GRID_SIZE))
 
             pygame.draw.rect(surface, self.color, rect)
-            pygame.draw.rect(surface, (17, 24, 47), rect, 1)
+            pygame.draw.rect(surface, Colors.BLACK, rect, 1)
 
     def reset(self):
         self.length = 1
