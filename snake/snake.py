@@ -5,10 +5,11 @@ import pygame
 
 from . import GRID_SIZE, SCREEN_HEIGHT, SCREEN_WIDTH, UP, DOWN, LEFT, RIGHT
 from .colors import Colors
+from .utils import flash
 
 
 class Snake:
-    def __init__(self):
+    def __init__(self, screen):
         self.length = 1
 
         self.positions = [(
@@ -19,6 +20,8 @@ class Snake:
         self.color = Colors.BLUE
         self.score = 0
         self.snake_speed = 2
+
+        self.screen = screen
 
     def get_head_position(self):
         return self.positions[0]
@@ -40,8 +43,10 @@ class Snake:
 
         if len(self.positions) > 2 and new in self.positions[2:]:
             self.reset()
+            flash(self.screen, "You died. Restarting again in 5 seconds. ESC to exit.", Colors.YELLOW)
         else:
             self.positions.insert(0, new)
+
             if len(self.positions) > self.length:
                 self.positions.pop()
 
@@ -66,11 +71,13 @@ class Snake:
                 sys.exit()
 
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_UP:
+                if event.key == pygame.K_UP or event.key == ord('w'):
                     self.turn(UP)
-                elif event.key == pygame.K_DOWN:
+                elif event.key == pygame.K_DOWN or event.key == ord('s'):
                     self.turn(DOWN)
-                elif event.key == pygame.K_LEFT:
+                elif event.key == pygame.K_LEFT or event.key == ord('a'):
                     self.turn(LEFT)
-                elif event.key == pygame.K_RIGHT:
+                elif event.key == pygame.K_RIGHT or event.key == ord('d'):
                     self.turn(RIGHT)
+                elif event.key == pygame.K_ESCAPE:
+                    pygame.event.post(pygame.event.Event(pygame.QUIT))

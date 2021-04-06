@@ -1,25 +1,24 @@
 import pygame
 
-from . import GRID_SIZE, GRID_HEIGHT, GRID_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH
+from . import GRID_SIZE, GRID_HEIGHT, GRID_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, font
 from .colors import Colors
 from .food import Food
 from .snake import Snake
 from .utils import draw_grid
 
 if __name__ == '__main__':
-    pygame.init()
-
     clock = pygame.time.Clock()
+
+    pygame.display.set_caption("Snake game python")
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), 0, 32)
 
     surface = pygame.Surface(screen.get_size())
     surface = surface.convert()
     draw_grid(surface, GRID_SIZE, GRID_HEIGHT, GRID_WIDTH)
 
-    snake = Snake()
+    snake = Snake(screen)
     food = Food()
 
-    font = pygame.font.SysFont("monospace", 16)
     high_score = 0
 
     while True:

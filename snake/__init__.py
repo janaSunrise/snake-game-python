@@ -1,3 +1,5 @@
+import pygame
+
 SCREEN_HEIGHT, SCREEN_WIDTH = 480, 480
 
 # Controls
@@ -10,3 +12,8 @@ RIGHT = 1, 0
 GRID_SIZE = 20
 GRID_WIDTH = SCREEN_WIDTH / GRID_SIZE
 GRID_HEIGHT = SCREEN_HEIGHT / GRID_SIZE
+
+# Pygame variables
+pygame.init()
+
+font = pygame.font.SysFont("monospace", 16)
