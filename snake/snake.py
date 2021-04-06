@@ -5,7 +5,6 @@ import pygame
 
 from . import GRID_SIZE, SCREEN_HEIGHT, SCREEN_WIDTH, UP, DOWN, LEFT, RIGHT
 from .colors import Colors
-from .utils import flash
 
 
 class Snake:
@@ -43,7 +42,6 @@ class Snake:
 
         if len(self.positions) > 2 and new in self.positions[2:]:
             self.reset()
-            flash(self.screen, "You died. Restarting again in 5 seconds. ESC to exit.", Colors.YELLOW)
         else:
             self.positions.insert(0, new)
 

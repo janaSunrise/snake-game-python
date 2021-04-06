@@ -1,16 +1,19 @@
 import pygame
 
-from . import GRID_SIZE, GRID_HEIGHT, GRID_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH, font
+from . import GRID_SIZE, GRID_HEIGHT, GRID_WIDTH, SCREEN_HEIGHT, SCREEN_WIDTH
 from .colors import Colors
 from .food import Food
 from .snake import Snake
 from .utils import draw_grid
 
 if __name__ == '__main__':
+    pygame.init()
+
+    font = pygame.font.SysFont("monospace", 16)
     clock = pygame.time.Clock()
+    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), 0, 32)
 
     pygame.display.set_caption("Snake game python")
-    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), 0, 32)
 
     surface = pygame.Surface(screen.get_size())
     surface = surface.convert()
@@ -29,9 +32,11 @@ if __name__ == '__main__':
         snake.move()
 
         if snake.get_head_position() == food.position:
+            if snake.score % 2 == 0:
+                snake.snake_speed += 1
+
             snake.length += 1
             snake.score += 1
-            snake.snake_speed += 1
 
             food.randomize_position()
 
