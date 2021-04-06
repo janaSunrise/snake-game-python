@@ -1,6 +1,6 @@
 import pygame
 
-SCREEN_HEIGHT, SCREEN_WIDTH = 480, 480
+SCREEN_HEIGHT, SCREEN_WIDTH = 600, 600
 
 # Controls
 UP = 0, -1
