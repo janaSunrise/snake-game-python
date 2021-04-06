@@ -6,7 +6,7 @@ A recreation of the old classic snake game, which we used to play during our chi
 
 **Here's a Demo on how it is played!**
 
-![alt text](https://github.com/janaSunrise/snake-game=python/blob/main/resources/snake.gif)
+![alt text](https://github.com/janaSunrise/snake-game-python/blob/main/resources/snake.gif)
 
 ## Install
 
@@ -38,7 +38,7 @@ making the commit message.
 
 ## 💬 Get in touch
 
-If you have various suggestions, questions or want to discuss things wit our community, Join our discord server!
+If you have various suggestions, questions or want to discuss things with our community, Join our discord server!
 
 [![Discord](https://discordapp.com/api/guilds/695008516590534758/widget.png?style=shield)](https://discord.gg/cSC5ZZwYGQ)
 
