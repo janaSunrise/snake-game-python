@@ -18,6 +18,7 @@ class Snake:
 
         self.color = Colors.BLUE
         self.score = 0
+        self.snake_speed = 2
 
     def get_head_position(self):
         return self.positions[0]
@@ -56,6 +57,7 @@ class Snake:
         self.positions = [((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2))]
         self.direction = random.choice([UP, DOWN, LEFT, RIGHT])
         self.score = 0
+        self.snake_speed = 2
 
     def handle_keys(self):
         for event in pygame.event.get():
