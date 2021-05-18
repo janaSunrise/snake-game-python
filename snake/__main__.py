@@ -23,7 +23,9 @@ class Game:
         self.snake = Snake(self.screen)
         self.food = Food()
 
+        self.score = None
         self.high_score = 0
+        self.high_score_ = None
 
         # Draw the grid
         draw_grid(self.surface, GRID_SIZE, GRID_HEIGHT, GRID_WIDTH)
@@ -38,6 +40,7 @@ class Game:
     def redraw_graphics(self):
         self.clock.tick(self.snake.snake_speed)
         self.snake.handle_keys()
+
         draw_grid(self.surface, GRID_SIZE, GRID_HEIGHT, GRID_WIDTH)
 
         self.snake.move()

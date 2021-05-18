@@ -1,5 +1,6 @@
 import random
 import sys
+import time
 
 import pygame
 
@@ -36,7 +37,7 @@ class Snake:
         x, y = self.direction
 
         new = (
-            ((cur[0] + (x * GRID_SIZE)) % SCREEN_WIDTH),
+            (cur[0] + (x * GRID_SIZE)) % SCREEN_WIDTH,
             (cur[1] + (y * GRID_SIZE)) % SCREEN_HEIGHT
         )
 

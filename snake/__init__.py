@@ -1,5 +1,3 @@
-import pygame
-
 SCREEN_HEIGHT, SCREEN_WIDTH = 600, 600
 
 # Controls
